@@ -1,11 +1,18 @@
 package com.study.corejava.HashMapTest;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import net.sf.cglib.core.AbstractClassGenerator;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class HashMapTestMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException {
         HashMap<Integer, Integer> map = new HashMap<>(4);
         map.put(1,1);
         map.put(2,2);
@@ -27,7 +34,7 @@ public class HashMapTestMain {
 
 
         System.out.println(hashChongTu1.hashCode()+"   "+hashChongTu2.hashCode());
-        HashMap<TestHashChongTu, TestHashChongTu> mapTestHash = new HashMap<>();
+        HashMap<TestHashChongTu, TestHashChongTu> mapTestHash = new HashMap<>(4);
         mapTestHash.put(hashChongTu1,hashChongTu1);
         mapTestHash.put(hashChongTu2, hashChongTu2);
         mapTestHash.put(hashChongTu3, hashChongTu3);
@@ -40,8 +47,18 @@ public class HashMapTestMain {
         mapTestHash.put(hashChongTu0, hashChongTu0);
 
 //        ConcurrentHashMap
+//        Collections
+
+//        AbstractClassGenerator
 
 
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                System.out.println(Thread.currentThread());
+//            }
+//        });
 
 
 
@@ -76,6 +93,29 @@ public class HashMapTestMain {
         // 0000 0000 0000 0000 0000 0000 0001 0000           0000 0000 0000 0000 0000 0000 0000 1111
         // hash3 & (17-1)
         // 0000 0000 0000 0000 0000 0000 0000 0000           0000 0000 0000 0000 0000 0000 0000 1010
+
+        //容量为16       16-1                                     扩容到32  32-1
+//        0000 0000 0000 0000 0000 0000 0000 1111            0000 0000 0000 0000 0000 0000 0001 1111
+
+//        0010 0011 1111 1100 0100 0001 1010 0010            0010 0011 1111 1100 0100 0001 1010 0010
+//        0000 0000 0000 0000 0000 0000 0000 1111            0000 0000 0000 0000 0000 0000 0001 1111
+
+//        0000 0000 0000 0000 0000 0000 0000 0010            0000 0000 0000 0000 0000 0000 0000 0010  下表为2
+
+
+//        0010 1011 1111 1100 0100 0001 1011 0010            0010 1011 1111 1100 0100 0001 1011 0010
+//        0000 0000 0000 0000 0000 0000 0000 1111            0000 0000 0000 0000 0000 0000 0001 1111
+
+//        0000 0000 0000 0000 0000 0000 0000 0010            0000 0000 0000 0000 0000 0000 0001 0010  下标为18
+
+
+//        0010 1011 1111 1100 0100 0001 1011 1010            0010 1011 1111 1100 0100 0001 1011 1010
+//        0000 0000 0000 0000 0000 0000 0000 1111            0000 0000 0000 0000 0000 0000 0001 1111
+
+//        0000 0000 0000 0000 0000 0000 0000 1010            0000 0000 0000 0000 0000 0000 0001 1010  下标为26
+
+
+
 
     }
 }

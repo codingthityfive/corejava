@@ -21,7 +21,7 @@ public class SentinelController {
 
     @RequestMapping("say")
     @ResponseBody
-    @SentinelResource(value = key, blockHandler = "blockHandlerMethod", fallback = "queryGoodsInfoFallback")
+    @SentinelResource(value = key, blockHandler = "blockHandlerMethod", fallback = "queryGoodsInfoFallback" ,fallbackClass = SentinelController.class)
     public String sayHello(){
         return "hello";
     }
